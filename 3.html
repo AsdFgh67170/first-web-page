@@ -5,6 +5,39 @@
   <title>WEB1 - JavaScript</title>
   <meta charser="utf-8S">
   <link rel="stylesheet" href="style.css">
+  <script>
+      function linkSetColor(color) {
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = color;
+          i = i + 1;
+      }
+    }
+    function bodySetColor(color) {
+      document.querySelector('body').style.color = color;
+    }
+    function bodySetBgColor(color) {
+      document.querySelector('body').style.backgroundColor = color;
+    }
+      function DarkLightmode(self) {
+        var target = document.querySelector('body');
+        if (self.value === 'dark') {
+          bodySetBgColor('black')
+          bodySetColor('grey')
+          self.value = 'light';
+
+          linkSetColor('powderblue');
+
+        } else {
+          bodySetBgColor('white')
+          bodySetColor('black')
+          self.value = 'dark';
+
+          linkSetColor('blue');
+        }
+      }
+  </script>
 </head>
 <body>
   <h1><a href="index.html">WEB</a></h1>
@@ -19,6 +52,7 @@
   ">
 -->
 <!--id="dark_light"-->
+<!--
   <input id="dark_light" type="button" value="dark" onclick="
   if (document.querySelector('#dark_light').value === 'dark') {
     document.querySelector('body').style.backgroundColor = 'black';
@@ -30,21 +64,15 @@
     document.querySelector('#dark_light').value = 'dark';
   }
   ">
+-->
   <!--
-  간결한 버전ㄴ
+  간결한 버전
   this, var target-->
+
   <input type="button" value="dark" onclick="
-  var target = document.querySelector('body')
-  if (this.value === 'dark') {
-    target.style.backgroundColor = 'black';
-    target.style.color = 'grey';
-    this.value = 'light'
-  } else {
-    target.style.backgroundColor = 'white';
-    target.style.color = 'black';
-    this.value = 'dark'
-  }
+    DarkLightmode(this);
   ">
+
   <div id="grid">
     <ol>
       <li><a href="1.html">HTML</a></li>
